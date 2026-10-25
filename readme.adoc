@@ -1,0 +1,76 @@
+
+= POS Exams Java Seed
+
+A seed project to be used for POS examinations when using
+the **Java** &trade; and **Spring** &trade; stack to
+implement the solutions.
+
+The exam project is a **Gradle multi-project** build with a
+central version catalog. The parts starting with `Aufgabe`
+are meant for you to put your solutions into.
+The parts are:
+
+|===
+| Subproject                 | Description
+
+| `Aufgabe1_ORMapping`       | Put your **Aufgabe 1** solution here.
+| `Aufgabe2_BusinessService` | Put your **Aufgabe 2** solution here.
+| `Aufgabe3_RestfulApi`      | Put your **Aufgabe 3** solution here.
+|===
+
+== First Step!
+
+Rename file `YOUR-CLASS_YOUR-NAME.txt` with your class and name!
+
+== Part 3 / Aufgabe 3
+
+A RESTful API implementation. Showcase
+your skills in implementing and testing
+a RESTful API.
+
+Directory: [./Aufgabe3_RestfulApi](./Aufgabe3_RestfulApi)
+
+Build script: [Aufgabe3_RestfulApi/build.gradle.kts](./Aufgabe3_RestfulApi/build.gradle.kts)
+
+Project root package: `restfulapi`
+
+Application class: `restfulapi.RestfulApiApplication`
+
+Root test class: `restfulapi.RestfulApiApplicationTest`<br/>
+(use additional specific classes for your tests)
+
+No persistence implementation is expected.
+
+Generate the required test data inside your
+tests.
+
+
+[IMPORTANT]
+Good luck!
+
+
+== Details about the project build
+
+The build is based on https://gradle.org/[Gradle]
+
+Shared build configuration:
+
+* Java 25 toolchain,
+* Spring Boot (devtools, validation),
+* JUnit Jupiter,
+* JaCoCo
+
+lives in the convention plugin [buildSrc/src/main/kotlin/POS-exam-java-conventions.gradle.kts](./buildSrc/src/main/kotlin/POS-exam-java-conventions.gradle.kts).
+Dependency versions live in [gradle/libs.versions.toml](./gradle/libs.versions.toml).
+
+=== Commands
+
+[source, shell]
+----
+# compile + test everything
+./gradlew build
+# tests for one module
+./gradlew :Aufgabe1_ORMapping:test
+# one specific test
+./gradlew :Aufgabe1_ORMapping:test --tests "ormapping.ORMappingApplicationTest"
+----
